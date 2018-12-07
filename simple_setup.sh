@@ -77,9 +77,10 @@ uid="$n"
 
 # echo "$firstName $lastName" "$username" "$uid" "change,me"
 sh "$scriptsPath"new_user.sh "$firstName $lastName" "$username" "$uid" "change,me" "$7"
-if [[ -z "$9" ]]; then
+
+if [[ ! -z "$9" ]]; then
   aPass="$9"
-  sh "$scriptsPath"filevault_setup.sh "$userName" "$aPass"
+  sh "$scriptsPath"filevault_setup.sh "$username" "$9"
 fi
 
 echo ${RED}"User account created----------------------------------------"${RESET}
