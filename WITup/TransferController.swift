@@ -111,10 +111,10 @@ class TransferController: NSViewController {
         warningLabel.stringValue = "Scripts are Currently Running. Please Wait."
         var command = String()
         let capName = lastName.stringValue
-        let username = capName.lowercased().replacingOccurrences(of: " ", with: "_")
+//        let username = capName.lowercased().replacingOccurrences(of: " ", with: "_")
         let oldSource = sourceField.stringValue
         //let newSource = oldSource.replacingOccurrences(of: " ", with: "\\ ", options: .literal, range: nil)
-        command = "'" + path + "' '" + firstName.stringValue + "' '" + lastName.stringValue + "' '" + oldSource + "' " + lib + " " + launch + " y n '" + scriptPath + "'"
+        command = "'" + path + "' '" + firstName.stringValue + "' '" + lastName.stringValue + "' '" + oldSource + "' " + lib + " " + launch + " y n '" + scriptPath + "' '" + aPass.stringValue + "'"
         
         var error: NSDictionary?
         
@@ -126,18 +126,18 @@ class TransferController: NSViewController {
         //    "privileges")!.executeAndReturnError(&error)
         print("error2: \(String(describing: error))")
         
-        // Reset path for filevault setup
-        let FVName = "filevault_setup.sh"
-        let FVPath = bundPath.path + "/" + FVName
-        // Run script
-        var FVcommand = String()
-        FVcommand = "'" + FVPath + "' '" + username + "' '" + aPass.stringValue + "'"
-        
-        var FVerror: NSDictionary?
-        let FVscommand = "do shell script \"sudo sh " + FVcommand + "\" with administrator " + "privileges"
-        
-        NSAppleScript(source: FVscommand)!.executeAndReturnError(&FVerror)
-        print("error2: \(String(describing: FVerror))")
+//         Reset path for filevault setup
+//        let FVName = "filevault_setup.sh"
+//        let FVPath = bundPath.path + "/" + FVName
+//        // Run script
+//        var FVcommand = String()
+//        FVcommand = "'" + FVPath + "' '" + username + "' '" + aPass.stringValue + "'"
+//
+//        var FVerror: NSDictionary?
+//        let FVscommand = "do shell script \"sudo sh " + FVcommand + "\" with administrator " + "privileges"
+//
+//        NSAppleScript(source: FVscommand)!.executeAndReturnError(&FVerror)
+//        print("error2: \(String(describing: FVerror))")
         warningLabel.stringValue = "Thanks for using WITup!"
         
         

@@ -2,7 +2,8 @@
 # Usage: sudo sh simple_setup.sh
 # Asks for First Name, Last Name, and previous file loc and then proceeds with setup
 # User creation, file transfer, launch update included.
-# Arguments: sudo sh simple_setup.sh [firstName] [lastName] [source] [lib_switch] [launch_switch] [transfer_switch] [encrpyt_switch] [scripts_path]
+# If apass given (as arg), automatically enables filevaule access for account
+# Arguments: sudo sh simple_setup.sh [firstName] [lastName] [source] [lib_switch] [launch_switch] [transfer_switch] [encrpyt_switch] [scripts_path] [apass]
 # Example: sudo sh simple_setup.sh John Wub "/Users/Test 6" y y y n "/Users/admin/Desktop/git"
 
 scriptsPath="$8"
@@ -76,6 +77,11 @@ uid="$n"
 
 # echo "$firstName $lastName" "$username" "$uid" "change,me"
 sh "$scriptsPath"new_user.sh "$firstName $lastName" "$username" "$uid" "change,me" "$7"
+
+if [[ ! -z "$9" ]]; then
+  aPass="$9"
+  sh "$scriptsPath"filevault_setup.sh "$username" "$9"
+fi
 
 echo ${RED}"User account created----------------------------------------"${RESET}
 printf \\a
