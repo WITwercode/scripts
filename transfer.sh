@@ -100,6 +100,8 @@ if [[ "$yoes" == "y" ]]; then
   chmod -R 777 "$destination/transfer_library"
 fi
 
+cp "$destination/WITtransferlog_$tdate" "$fileLoc"/WITtransferlog_$tdate"
+
 # Tar creation disabled
 # Creates tar file containing Library, untars the file into "transfer_library" and deletes the tar
 # if [[ "$yoes" == "y" ]]; then
