@@ -82,14 +82,6 @@ class TransferOnlyController: NSViewController {
         let scriptName = "transfer.sh"
         let path = bundPath.path + "/" + scriptName
         
-//        var fileURL = FileManager.default.homeDirectoryForCurrentUser
-//        //create path to simple_setup.sh
-//        fileURL.appendPathComponent("Downloads");
-//        fileURL.appendPathComponent("scripts-master");
-//        fileURL.appendPathComponent("transfer")
-//        fileURL.appendPathExtension("sh")
-//        let path = fileURL.path
-        
         // checkboxes
         var lib = String()
         switch libraryFiles.state {
